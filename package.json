@@ -6,6 +6,13 @@
   },
   "author": "CARZI",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carzi/altv-server-manager"
+  },
+  "bugs": {
+    "url": "https://github.com/carzi/altv-server-manager/issues"
+  },
   "dependencies": {
     "@inquirer/prompts": "^3.0.0",
     "@swc/core": "^1.3.71",
