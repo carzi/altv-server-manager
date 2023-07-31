@@ -1,8 +1,8 @@
 {
   "name": "altv-server-manager",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "bin": {
-    "altv": "./cli.js"
+    "altv": "./index.js"
   },
   "author": "CARZI",
   "license": "MIT",
