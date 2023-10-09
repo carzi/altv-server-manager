@@ -1,73 +1,45 @@
 # altv-server-manager [ BETA ]
 
-> In the beta version everything is in Russian, if you want to help with the translation, write to me at Discord [@lean_hell](https://discord.com/)
+A tool to help you manage [alt:V Multiplayer](https://altv.mp/) server.
 
-Что такое **altv-server-manager**? Это попытка сделать аналог Minecraft плагинов, где модули могут друг друга импортировать и существовать независимо друг от друга. *- Но у alt:V есть же ресурсы!* Да, есть, но попытки импортировать из ресурса функцию привели к тому что функция теряет дерево методов, а так же нет поддержки типов, т.к. TS не знает что такое ресурсы alt:V. Именно это побудило меня создать что-то что помогало бы мне разрабатывать сервер в комфорте.
-> Разрабатывался как  вспомогательный инструмент разработки alt:V сервера для личного пользования, но вы так же можете использовать его в своих проектах.
+## How to use?
 
-## Особенности
-- Модульная разработка при едином ресурсе
-- Поддержка Typescript
-- Быстрая компиляция Typescript файлов
-- Импорт модулей через алиас (@/)
-- Скрипт обновление файлов сервера
-- Минифакция при продакшене
-
-## Недостатки
-- Enum нужно указывать числом, т.к. компилятор не заменяет его на число автоматический.
-
-## Как использовать?
-Можно воспользоваться скриптом создания сервера:
-```js
-npx create altv-server / yarn create altv-server
-```
-Или установить npm пакет:
-```js
-// Глобально
-npm install -g altv-server-manager / yarn add -g altv-server-manager
-
-// Локально в проект
-npm install altv-server-manager / yarn add altv-server-manager
-```
-
-## CLI Команды
-
-Используйте следующее команды, создать/запустить сервер.  
-`Все команды должны быть запущены в каталоге сервера!`
-```js
-// Создать сервер
-altv create
-
-// Запустить в режиме разработки
-altv dev
-
-// Запустить в режиме прода
-altv start
-
-// Обновить сервер
-altv update
-```
-
-## Как создать новый модуль?
-Для создания нового модуля, необходимо создать папку в каталоге **modules** со следующей структурой:
 ```yaml
-├── client 
-│   ├── ... # Пользовательские файлы
-│   └── index.ts
-├── server
-│   ├── ... # Пользовательские файлы
-│   └── index.ts
-├── shared 
-│   └── ... # Типы, ивенты, конфиги и т.д.
-└── webview 
-    └── ... # Проект Vite с React/Vue/Svelte или т.д.
-```
-Наличие файла **index.ts** в этих папках обязательное, т.к. он является основной точной входа в модуль и будет запущен при запуске сервера.
-**client** и **server** являются обязательными папками, но так же вы можете оставить одну из них. 
+altv init
+    -nologo
+    -win
+    -linux
+    -release
+    -rc
+    -dev
+    -ts
+    -js
+    -csharp # soon
+    -rust # soon
 
-## Импорты
-Для импорта файлов из папок **client/server/shared** в другие модули, необходимо делать это через алиас. 
-```js
-// Пример
-import { MariaDB } from '@/database/server/index.js';
+altv update
+    -win
+    -linux
+    -release
+    -rc
+    -dev
+    -ts
+    -js
+    -csharp # soon
+    -rust # soon
+    -server
+    -data
+    -module
+
+altv dev
+    -ts
+    -js
+    -csharp # soon
+    -rust # soon
+
+altv build
+    -m
+    -ts
+    -csharp # soon
+    -rust # soon
 ```
